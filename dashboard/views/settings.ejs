@@ -37,25 +37,6 @@
                                     <p style="font-style: italic;" class="disabled">The Message to reply with</p>
                                     <input style="margin-top: -10px;" type="text" class="form-control" name="hellomsg" value="<%= bot.settings.get(guild.id, 'hellomsg') %>" placeholder="hellomsg">
                                     
-
-
-                                    <br><br>
-                                    <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff">Roles:</h5>
-                                    <p style="font-style: italic;" class="disabled">Sample Roles Selector!</p>
-                                    <select 
-                                        class="form-control selectpicker"
-                                        multiple  
-                                        data-width="100%"
-                                        data-live-search="true" 
-                                        aria-label="Roles"
-                                        name="roles"
-                                    >
-                                        <% guild.roles.cache.filter(role=>!role.managed).sort((a, b) => b.rawPosition - a.rawPosition).forEach((role, i) => { %>
-                                            <option value="<%= role.id%>" 
-                                                <%= bot.settings.get(guild.id, "roles").includes(role.id) ? "selected" : "" %>> @<%= role.name%>
-                                            </option>
-                                        <% }) %>
-                                    </select>
     
                                     <button type="submit" class="btn btn-success text-white" style="font-size: 40px;">
                                         <i class="iconify" data-icon="cil:save"></i> Save Settings

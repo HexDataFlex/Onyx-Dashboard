@@ -2,6 +2,7 @@ const express = require("express");
 const url = require("url");
 const path = require("path");
 const Discord = require("discord.js");
+const chalk = require("chalk");
 const ejs = require("ejs");
 const passort = require("passport");
 const bodyParser = require("body-parser");
@@ -15,6 +16,8 @@ module.exports = client => {
     const app = express();
     const session = require("express-session");
     const MemoryStore = require("memorystore")(session);
+
+    console.log(chalk.bgWhite.green(" DASH ") + ` 🪄  Starting!`);
 
 
     //Initalize the Discord Login
@@ -177,7 +180,6 @@ module.exports = client => {
         });
         if(req.body.prefix) client.settings.set(guild.id, req.body.prefix, "prefix");
         if(req.body.hellomsg) client.settings.set(guild.id, req.body.hellomsg, "hellomsg");
-        if(req.body.roles) client.settings.set(guild.id, req.body.roles, "roles");
         res.render("settings", {
             req: req,
             user: req.isAuthenticated() ? req.user : null,
@@ -191,7 +193,7 @@ module.exports = client => {
 
     const http = require("http").createServer(app);
     http.listen(Settings.config.port, () => {
-        console.log(`Website is online on the Port: ${Settings.config.port}, ${Settings.website.domain}`);
+        console.log(chalk.bgWhite.green(" DASH ") + ` ✅ Dashboard online on port ${Settings.config.port}, http://${Settings.config.domain || "localhost"}:${Settings.config.port}.`);
     });
 
 }
