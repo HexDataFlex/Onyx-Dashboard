@@ -26,6 +26,8 @@
     "enmap": "^5.9.5",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
+    "glob": "^8.0.3",
+    "glob-promise": "^6.0.1",
     "memorystore": "^1.6.7",
     "passport": "^0.6.0",
     "passport-discord": "^0.1.4",

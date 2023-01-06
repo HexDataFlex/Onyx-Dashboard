@@ -87,6 +87,7 @@ module.exports = client => {
             res.json({login: false, message: "You are banned from the dashboard", logout: true})
             req.logout();
         } else {
+            console.log(chalk.bgWhite.green(" DASH ") + ` 🔎 Someone logged into the dashboard! `);
             res.redirect("/dashboard")
         }
     });
